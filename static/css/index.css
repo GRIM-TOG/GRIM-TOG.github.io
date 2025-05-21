@@ -1,0 +1,116 @@
+/* === ./static/css/index.css === */
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.footer .icon-link {
+  font-size: 25px;
+  color: #000;
+}
+
+.link-block a {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.dnerf { font-variant: small-caps; }
+.teaser { font-family: 'Google Sans', sans-serif; }
+.teaser .hero-body { padding-top: 0; padding-bottom: 3rem; }
+
+.publication-title, .publication-authors, .publication-venue, .publication-awards {
+  font-family: 'Google Sans', sans-serif;
+}
+.publication-title { font-weight: bold; }
+.publication-venue { color: #555; width: fit-content; font-weight: bold; }
+.publication-awards { color: #ff3860; width: fit-content; font-weight: bolder; }
+.publication-authors a { color: hsl(204, 86%, 53%) !important; }
+.publication-authors a:hover { text-decoration: underline; }
+.author-block { display: inline-block; margin-right: 10px; /* Added for spacing between authors */ }
+.univerity-block { display: inline-block; margin-right: 14px; /* Added for spacing between universities */ }
+
+
+.publication-banner { max-height: 100%; }
+.publication-banner video { position: relative; object-fit: cover; }
+
+.publication-video {
+  position: relative; width: 100%; height: 0;
+  padding-bottom: 56.25%; overflow: hidden; border-radius: 10px !important;
+}
+.publication-video iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
+
+.results-carousel { overflow: hidden; }
+.results-carousel .item {
+  margin: 5px; overflow: hidden; border: 1px solid #bbb;
+  border-radius: 10px; padding: 0; font-size: 0;
+}
+.results-carousel video { margin: 0; }
+
+.interpolation-panel { background: #f5f5f5; border-radius: 10px; }
+.interpolation-panel .interpolation-image { width: 100%; border-radius: 5px; }
+.interpolation-panel .slider { margin: 0 !important; }
+#interpolation-image-wrapper { width: 100%; }
+#interpolation-image-wrapper img { border-radius: 5px; }
+
+.publication-links {
+  display: flex; justify-content: center; flex-wrap: wrap;
+  gap: 12px; margin-top: 20px;
+}
+/* .publication-links a is mostly handled by Bulma button classes, added for consistency if needed */
+
+/* Styles for image comparison slider captions */
+.before, .after { margin: 0; }
+.before figcaption, .after figcaption {
+  background: #fff; border: 1px solid #c0c0c0; border-radius: 4px;
+  color: #2e3452; opacity: 0.8; padding: 4px; position: absolute;
+  top: 50%; transform: translateY(-50%); line-height: 100%; /* Adjusted back from 70% if needed */
+}
+.before figcaption { left: 4px; }
+.after figcaption { right: 4px; }
+
+/* Styles for teaser glow button */
+.button-container_teaser { display: flex; justify-content: center; align-items: center; }
+.glow-button { position: relative; display: inline-block; padding: 2px; border-radius: 10px; z-index: 0; margin-bottom: 15px; }
+.glow-button button { background: transparent; border: none; color: white; padding: 5px 10px; font-size: 16px; border-radius: 10px; cursor: pointer; outline: none; }
+.glow-button:before { content: ""; background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000); position: absolute; top: -2px; left: -2px; background-size: 400%; z-index: -1; filter: blur(5px); -webkit-filter: blur(5px); width: calc(100% + 4px); height: calc(100% + 4px); animation: glowing-button-85 20s linear infinite; transition: opacity 0.3s ease-in-out; border-radius: 10px; }
+@keyframes glowing-button-85 { 0% { background-position: 0 0; } 50% { background-position: 400% 0; } 100% { background-position: 0 0; } }
+.glow-button:after { z-index: -1; content: ""; position: absolute; width: 100%; height: 100%; background: #222; left: 0; top: 0; border-radius: 10px; }
+
+/* Styles for teaser container */
+.container_teaser { display: flex; justify-content: center; align-items: center; height: 100%; } /* height:100% might be too much if teaser isn't full viewport height */
+.column_teaser { flex: 0 0 auto; width: 100%; max-width: 800px; margin: 0 auto; }
+
+/* 
+  =================================================================
+  === CSS FOR INTERACTIVE 3D VIEWERS                             ===
+  =================================================================
+*/
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.interactive-3d-window-wrapper {
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 500px; /* Or any height you prefer */
+  overflow: hidden;
+}
+
+.interactive-3d-window-wrapper iframe {
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* === END OF CSS FOR INTERACTIVE 3D VIEWERS === */

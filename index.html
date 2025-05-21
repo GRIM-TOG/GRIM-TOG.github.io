@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Project page for GRIM: TOG: Task-Oriented Grasping with Conditioning on Generative Examples">
+  <meta name="keywords" content="Task-Oriented Grasping, Robotics, AI, Machine Learning, Generative Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" type="image/x-icon" href="./media/pipeline.png">
+  
+  <title>GRIM: TOG: Task-Oriented Grasping with Conditioning on Generative Examples</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <!-- Main CSS for the page -->
+  <link rel="stylesheet" href="./static/css/index.css">
+  
+  <!-- Other Bulma and FontAwesome CSS (already in your original structure) -->
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
+
+  <script
+  defer
+  src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"
+  ></script>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"
+  />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <link rel="image_src" href="./media/pipeline.png">
+  
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">TOG 🦾</h1>
+          <h1 class="title is-2 publication-title">Task-Oriented Grasping with Conditioning on Generative Examples</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://chinchinati.github.io/">Shailesh</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="">Alok Raj</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="">Nayan Kumar</a><sup>1</sup>,</span>
+              <span class="author-block"> 
+                <a href="">Priya Shukla</a><sup>3</sup>,</span>
+              <span class="author-block">
+                <a href="">Andrew Melnik</a><sup>2</sup>,</span>
+              <span class="author-block"> 
+                <a href="">Michael Beetz</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="">Gora Chand Nandi</a><sup>3</sup></span>
+            </div>
+          <div class="is-size-5 publication-authors">
+            <span class="univerity-block"><sup>1</sup>IIT(ISM) Dhanbad</span>
+            <span class="univerity-block"><sup>2</sup>University of Bremen</span>
+            <span class="univerity-block"><sup>3</sup>IIIT Allahabad</span>
+          </div>
+          <div class="publication-links">
+            <span class="link-block">
+              <a href="" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fab fa-youtube"></i></span><span>Video</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Task-Oriented Grasping (TOG) is a challenging
+            problem that requires an understanding of task semantics, object
+            affordances, and the functional aspects of how an object should
+            be held for a purpose. To address these challenges, we introduce
+            GRIM (Grasp Re-alignment via Iterative Matching), a novel
+            training-free framework for task-oriented grasping. Initially, a
+            coarse alignment strategy is developed using a combination of
+            geometric cues and the scoring of PCA-reduced DINO features.
+            Subsequently, the full grasp pose associated with the retrieved
+            memory instance is transferred to the aligned scene object
+            and further refined against a set of task-agnostic, geometrically
+            stable grasps generated for the scene object, prioritizing task
+            compatibility. Compared to previous training-based methods,
+            our approach is able to achieve high generalization with a few
+            conditioning examples.
+          </p>
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <h2 class="title is-3">Video</h2>
+              <div class="publication-video">
+                <iframe src=""
+                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Project Video"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Approach</h2>
+    <div class="content has-text-justified">
+
+      <!-- First image and caption -->
+      <figure>
+        <p class="image">
+          <img src="media/pipeline/phase1.png" alt="Memory Creation Pipeline">
+        </p>
+        <figcaption class="has-text-centered is-size-7 mt-2">
+          The figure shows our memory creation pipeline. The Hand-Object Reconstruction block...
+        </figcaption>
+      </figure>
+
+      <!-- Second image and caption -->
+      <figure class="mt-6">
+        <p class="image">
+          <img src="media/pipeline/phase2.png" alt="Retrieval, Alignment and Transfer Process">
+        </p>
+        <figcaption class="has-text-centered is-size-7 mt-2">
+          The figure describes our retrieval, alignment and transfer process. The feature scene and memory objects are shown with DINOv2 PCA features as color representation. In the feature guided iterative alignment phase, the red point cloud is retrieved from memory, overlapped with the scene object point cloud.
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+    <!-- Corrected minor typo in title -->
+    <h3 class="title is-3">Veo 2: Generated Synthetic Videos for Grasp Estimation</h3>
+    <div class="content has-text-justified">
+    <p>
+    We use Veo 2 to generate 5-second and 8-second, object-centered videos depicting human hand interactions for grasp pose estimation. Given an object image and name from the TaskGrasp dataset [Murali et al., 2020b], Veo 2 generates a detailed grasp description tailored to a specific task. This is used to prompt the Veo 2 video generation model, which produces consistent, realistic grasping videos. We extract the middle frame—where the grasp is clearest—for downstream use. This approach enables scalable, high-quality data generation for learning task-conditioned grasps.
+    </p>
+    </div>
+    
+    <!-- ORIGINAL ROW 1 -->
+    <div class="columns is-centered">
+      <!-- Video 1 -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-6">Holding strainer by handle</h2>
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <!-- Corrected path separator -->
+            <source src="media/gemini_gen_videos/strainer_handle.mp4" 
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!-- Video 2 -->
+      <div class="column">
+        <h2 class="title is-6">Gripping the mug's body</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+              <!-- Corrected path separator -->
+              <source src="media/gemini_gen_videos/mug_body.mp4" 
+              type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <!-- Video 3 -->
+      <div class="column">
+        <h2 class="title is-6">Gripping the tongs' tips </h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <video id="matting-video-r1v3" autoplay controls muted loop playsinline height="100%">
+              <!-- Corrected path separator -->
+              <source src="media/gemini_gen_videos/tongs_tip.mp4" 
+              type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF ORIGINAL ROW 1 -->
+
+    <!-- NEW ROW 2 -->
+    <div class="columns is-centered">
+      <!-- Video 1 -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-6">Holding a pitcher by its handle</h2>
+          <video id="video-r2v1" autoplay controls muted loop playsinline height="100%">
+            <!-- Corrected path separator -->
+            <source src="media/gemini_gen_videos/pitcher.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!-- Video 2 -->
+      <div class="column">
+        <h2 class="title is-6">Gripping the flashlight's head</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <video id="video-r2v2" autoplay controls muted loop playsinline height="100%">
+              <!-- Corrected path separator -->
+              <source src="media/gemini_gen_videos/flashlight.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <!-- Video 3 -->
+      <div class="column">
+        <h2 class="title is-6">Holding the coat hanger by the hook</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <video id="video-r2v3" autoplay controls muted loop playsinline height="100%">
+              <!-- Corrected path separator -->
+              <source src="media/gemini_gen_videos/hanger.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF NEW ROW 2 -->
+
+    <!-- NEW ROW 3 -->
+    <div class="columns is-centered">
+      <!-- Video 1 -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-6">Holding a spoon by the handle</h2>
+          <video id="video-r4v1" autoplay controls muted loop playsinline height="100%">
+            <!-- Corrected path separator -->
+            <source src="media/gemini_gen_videos/spoon.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!-- Video 2 -->
+      <div class="column">
+        <h2 class="title is-6">Gripping the sponge in the palm</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <video id="video-r4v2" autoplay controls muted loop playsinline height="100%">
+              <!-- Corrected path separator -->
+              <source src="media/gemini_gen_videos/sponge.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <!-- Video 3 -->
+      <div class="column">
+        <h2 class="title is-6">Holding the ice scraper by the blade</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <video id="video-r4v3" autoplay controls muted loop playsinline height="100%">
+              <!-- Corrected path separator -->
+              <source src="media/gemini_gen_videos/ice_scrapper.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF NEW ROW 3 -->
+
+    <!-- NEW ROW 4 -->
+    <div class="columns is-centered">
+      <!-- Video 1 -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-6">Holding the bottle by its base</h2>
+          <video id="video-r5v1" autoplay controls muted loop playsinline height="100%">
+            <!-- Corrected path separator -->
+            <source src="media/gemini_gen_videos/bottle.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!-- Video 2 -->
+      <div class="column">
+        <h2 class="title is-6">Gripping the charger's cable cord</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <video id="video-r5v2" autoplay controls muted loop playsinline height="100%">
+              <!-- Corrected path separator -->
+              <source src="media/gemini_gen_videos/charger.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <!-- Video 3 -->
+      <div class="column">
+        <h2 class="title is-6">Holding the garlic press by its handle</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <video id="video-r5v3" autoplay controls muted loop playsinline height="100%">
+              <!-- Corrected path separator -->
+              <source src="media/gemini_gen_videos/garlic_press.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF NEW ROW 4 -->
+
+    <style>
+      .before,
+      .after {
+        margin: 0;
+      }
+    
+      .before figcaption,
+      .after figcaption {
+        background: #fff;
+        border: 1px solid #c0c0c0;
+        border-radius: 4px;
+        color: #2e3452;
+        opacity: 0.8;
+        padding: 4px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        line-height: 100%;
+      }
+    
+      .before figcaption {
+        left: 4px;
+      }
+    
+      .after figcaption {
+        right: 4px;
+      }
+    </style>
+  </div>
+</section> <!-- Closing tag for "Veo 2" section was missing, added it. -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h3 class="title is-3 has-text-centered">Hand Object Reconstruction</h3>
+    <div class="content has-text-justified">
+    </div>
+    
+    <!-- ROW 1 for Interactive 3D Viewers -->
+    <div class="columns is-centered">
+      <!-- Viewer 1.1 -->
+      <div class="column is-6">
+        <div class="interactive-3d-window-wrapper">
+          <!-- Corrected path separator -->
+          <iframe src="media/3d_interactive_visual/1.html"
+                  title="Interactive 3D Model 1.1: Gripper on Scaled Object">
+            <p>Your browser does not support iframes. Please visit
+              <!-- Corrected path separator -->
+              <a href="media/3d_interactive_visual/1.html">this link</a> directly.
+            </p>
+          </iframe>
+        </div>
+      </div>
+      <!-- Viewer 1.2 -->
+      <div class="column is-6">
+        <div class="interactive-3d-window-wrapper">
+          <!-- Corrected path separator -->
+          <iframe src="media/3d_interactive_visual/2.html"
+                  title="Interactive 3D Model 1.2: Gripper on Scaled Object"> <!-- Updated title for uniqueness -->
+            <p>Your browser does not support iframes. Please visit
+              <!-- Corrected path separator -->
+              <a href="media/3d_interactive_visual/2.html">this link</a> directly.
+            </p>
+          </iframe>
+        </div>
+      </div>
+    </div>
+    <!-- END OF ROW 1 -->
+
+    <!-- ROW 2 for Interactive 3D Viewers -->
+    <div class="columns is-centered">
+      <!-- Viewer 2.1 -->
+      <div class="column is-6">
+        <div class="interactive-3d-window-wrapper">
+          <!-- Corrected path separator -->
+          <iframe src="media/3d_interactive_visual/3.html"
+                  title="Interactive 3D Model 2.1: Gripper on Scaled Object"> <!-- Updated title for uniqueness -->
+            <p>Your browser does not support iframes. Please visit
+              <!-- Corrected path separator -->
+              <a href="media/3d_interactive_visual/3.html">this link</a> directly.
+            </p>
+          </iframe>
+        </div>
+      </div>
+      <!-- Viewer 2.2 -->
+      <div class="column is-6">
+        <div class="interactive-3d-window-wrapper">
+          <!-- Corrected path separator -->
+          <iframe src="media/3d_interactive_visual/4.html"
+                  title="Interactive 3D Model 2.2: Gripper on Scaled Object"> <!-- Updated title for uniqueness -->
+            <p>Your browser does not support iframes. Please visit
+              <!-- Corrected path separator -->
+              <a href="media/3d_interactive_visual/4.html">this link</a> directly.
+            </p>
+          </iframe>
+        </div>
+      </div>
+    </div>
+    <!-- END OF ROW 2 -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h3 class="title is-3 has-text-centered">Feature Guided Alignment</h3>
+    <div class="content has-text-justified"></div>
+
+    <!-- Row 1 -->
+    <div class="columns is-centered">
+      <!-- Viewer 1 -->
+      <div class="column is-4">
+        <div class="interactive-3d-window-wrapper">
+          <iframe src="media\feature_guided_alignment\003_pan-spatula_final_alignment.html" title="Interactive 3D Model 1">
+            <p>Your browser does not support iframes. Please visit
+              <a href="media\feature_guided_alignment\003_pan-spatula_final_alignment.html">this link</a> directly.
+            </p>
+          </iframe>
+        </div>
+      </div>
+      <!-- Viewer 2 -->
+      <div class="column is-4">
+        <div class="interactive-3d-window-wrapper">
+          <iframe src="media\feature_guided_alignment\020_mug-mug_final_alignment.html" title="Interactive 3D Model 2">
+            <p>Your browser does not support iframes. Please visit
+              <a href="media\feature_guided_alignment\020_mug-mug_final_alignment.html">this link</a> directly.
+            </p>
+          </iframe>
+        </div>
+      </div>
+      <!-- Viewer 3 -->
+      <div class="column is-4">
+        <div class="interactive-3d-window-wrapper">
+          <iframe src="media\feature_guided_alignment\035_ladle-ladle_final_alignment.html" title="Interactive 3D Model 3">
+            <p>Your browser does not support iframes. Please visit
+              <a href="media\feature_guided_alignment\035_ladle-ladle_final_alignment.html">this link</a> directly.
+            </p>
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="columns is-centered">
+      <!-- Viewer 4 -->
+      <div class="column is-4">
+        <div class="interactive-3d-window-wrapper">
+          <iframe src="media\feature_guided_alignment\060_scissors-scissors_final_alignment.html" title="Interactive 3D Model 4">
+            <p>Your browser does not support iframes. Please visit
+              <a href="media\feature_guided_alignment\060_scissors-scissors_final_alignment.html">this link</a> directly.
+            </p>
+          </iframe>
+        </div>
+      </div>
+      <!-- Viewer 5 -->
+      <div class="column is-4">
+        <div class="interactive-3d-window-wrapper">
+          <iframe src="media\feature_guided_alignment\099_fork-pan_final_alignment.html" title="Interactive 3D Model 5">
+            <p>Your browser does not support iframes. Please visit
+              <a href="media\feature_guided_alignment\099_fork-pan_final_alignment.html">this link</a> directly.
+            </p>
+          </iframe>
+        </div>
+      </div>
+      <!-- Viewer 6 -->
+      <div class="column is-4">
+        <div class="interactive-3d-window-wrapper">
+          <iframe src="media\feature_guided_alignment\135_hammer-spoon_final_alignment.html" title="Interactive 3D Model 6">
+            <p>Your browser does not support iframes. Please visit
+              <a href="media\feature_guided_alignment\135_hammer-spoon_final_alignment.html">this link</a> directly.
+            </p>
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="columns is-centered">
+      <!-- Viewer 7 -->
+      <div class="column is-4">
+        <div class="interactive-3d-window-wrapper">
+          <iframe src="media\feature_guided_alignment\123_measuring_cup-mug_final_alignment.html" title="Interactive 3D Model 7">
+            <p>Your browser does not support iframes. Please visit
+              <a href="media\feature_guided_alignment\123_measuring_cup-mug_final_alignment.html">this link</a> directly.
+            </p>
+          </iframe>
+        </div>
+      </div>
+      <!-- Viewer 8 -->
+      <div class="column is-4">
+        <div class="interactive-3d-window-wrapper">
+          <iframe src="media\feature_guided_alignment\178_fork-spatula_final_alignment.html" title="Interactive 3D Model 8">
+            <p>Your browser does not support iframes. Please visit
+              <a href="media\feature_guided_alignment\178_fork-spatula_final_alignment.html">this link</a> directly.
+            </p>
+          </iframe>
+        </div>
+      </div>
+      <!-- Viewer 9 -->
+      <div class="column is-4">
+        <div class="interactive-3d-window-wrapper">
+          <iframe src="media\feature_guided_alignment\005_mortar-mortar_final_alignment.html" title="Interactive 3D Model 9">
+            <p>Your browser does not support iframes. Please visit
+              <a href="media\feature_guided_alignment\005_mortar-mortar_final_alignment.html">this link</a> directly.
+            </p>
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <!-- Corrected author formatting in BibTeX -->
+    <pre><code>@inproceedings{shailesh2025GRIM,
+    title={{GRIM: TOG: Task-Oriented Grasping with Conditioning on Generative Examples}},
+    author={Shailesh and Raj, Alok and Kumar, Nayan and Shukla, Priya and Melnik, Andrew and Beetz, Michael and Nandi, Gora Chand},
+    booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+    pages={21676--21685},
+    year={2025}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href=""> <i class="fas fa-file-pdf"></i> </a>
+      <a class="icon-link" href="" class="external-link" disabled> <i class="fab fa-github"></i> </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p> Source code borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleSliders() {
+      // This function refers to slider1-container_teaser and slider2-container_teaser.
+      // However, slider2-container_teaser is not defined in the HTML.
+      // Commenting out the body to prevent errors if it's called.
+      // If this functionality is needed, ensure both slider containers exist or adjust the script.
+      /*
+      var slider1 = document.getElementById("slider1-container_teaser");
+      var slider2 = document.getElementById("slider2-container_teaser");
+      if (slider1.style.display === "none") {
+          slider1.style.display = "block";
+          if (slider2) slider2.style.display = "none"; // Check if slider2 exists
+      } else {
+          slider1.style.display = "none";
+          if (slider2) slider2.style.display = "block"; // Check if slider2 exists
+      }
+      */
+  }
+  // The toggleSliders() function is defined but not called in this HTML.
+</script>
+
+</body>
+</html>
