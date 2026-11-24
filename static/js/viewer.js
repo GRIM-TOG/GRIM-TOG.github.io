@@ -49,14 +49,19 @@ async function fetchBin(url, onProgress) {
   const r = await fetch(url);
   const total = +r.headers.get('content-length') || 0;
   if (!r.body || !total) return r.arrayBuffer();
+  // content-length is the *compressed* size when the server gzips (GitHub Pages does),
+  // so collect chunks instead of pre-allocating, and cap the progress estimate.
   const reader = r.body.getReader();
-  const out = new Uint8Array(total);
+  const chunks = [];
   let got = 0;
   for (;;) {
     const { done, value } = await reader.read();
     if (done) break;
-    out.set(value, got); got += value.length; onProgress(got / total);
+    chunks.push(value); got += value.length; onProgress(Math.min(got / total, 1));
   }
+  const out = new Uint8Array(got);
+  let o = 0;
+  for (const c of chunks) { out.set(c, o); o += c.length; }
   return out.buffer;
 }
 
