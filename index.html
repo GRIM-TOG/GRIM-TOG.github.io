@@ -29,6 +29,7 @@
       <a href="#abstract">Abstract</a>
       <a href="#video">Video</a>
       <a href="#approach">Approach</a>
+      <a href="#real">Real world</a>
       <a href="#veo">Veo 2</a>
       <a href="#hor">3D</a>
       <a href="#bibtex">BibTeX</a>
@@ -63,10 +64,8 @@
     </div>
 
     <div class="links reveal">
-      <a class="btn" href="media/paper_assets/GRIM_arXiv.pdf">
+      <a class="btn" href="https://arxiv.org/pdf/2506.15607">
         <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>Paper</a>
-      <a class="btn" href="https://arxiv.org/abs/2506.15607">
-        <svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg>arXiv</a>
       <a class="btn" href="https://youtu.be/Alzd1yk6IzI?si=-9ulj4AINrpILl_9">
         <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>Video</a>
       <a class="btn" href="https://github.com/GRIM-TOG/GRIM">
@@ -125,18 +124,37 @@
     <p class="eyebrow reveal">Approach</p>
     <h2 class="reveal">Two phases: build a memory, then retrieve, align and transfer.</h2>
     <div class="tabs reveal" role="tablist">
-      <button class="tab is-active" data-tab="0" role="tab"><span>01</span>Memory creation</button>
-      <button class="tab" data-tab="1" role="tab"><span>02</span>Retrieval, alignment &amp; transfer</button>
+      <button class="tab is-active" data-tab="0" role="tab"><span>00</span>Overview</button>
+      <button class="tab" data-tab="1" role="tab"><span>01</span>Memory creation</button>
+      <button class="tab" data-tab="2" role="tab"><span>02</span>Retrieval, alignment &amp; transfer</button>
     </div>
     <div class="tab-panels reveal">
       <figure class="tab-panel is-active">
-        <img class="zoomable" src="media/pipeline/phase1.webp" alt="Memory creation pipeline" width="2400" height="1056" loading="lazy">
-        <figcaption>The figure shows our memory creation pipeline. The Hand-Object Reconstruction block...</figcaption>
+        <img class="zoomable" src="media/pipeline/overview.webp" alt="The GRIM framework for task-oriented grasp synthesis" width="2500" height="1020" loading="lazy">
+        <figcaption>The GRIM framework for task-oriented grasp synthesis. From a single scene image, the VGM generates task-specific video examples, such as hammering (Task A) and handover (Task B). Grasps are extracted from these generated videos and then transferred to a robotic arm to execute the specified task in the real world as shown for hammering (Task A).</figcaption>
       </figure>
       <figure class="tab-panel">
-        <img class="zoomable" src="media/pipeline/phase2.webp" alt="Retrieval, alignment and transfer process" width="2400" height="1051" loading="lazy">
-        <figcaption>The figure describes our retrieval, alignment and transfer process. The feature scene and memory objects are shown with DINOv2 PCA features as color representation. In the feature guided iterative alignment phase, the red point cloud is retrieved from memory, overlapped with the scene object point cloud.</figcaption>
+        <img class="zoomable" src="media/pipeline/phase1.webp" alt="Memory creation pipeline" width="2400" height="1071" loading="lazy">
+        <figcaption>Our memory creation pipeline. A diverse set of inputs (AI-generated video frames, web images, human demonstrations) are processed by a hand-object reconstruction module (Wu et al. 2024). This yields an object mesh and a corresponding task-oriented grasp pose. We enrich the object mesh with dense DINO features to create a feature mesh, which is stored in memory alongside the task label and grasp pose.</figcaption>
       </figure>
+      <figure class="tab-panel">
+        <img class="zoomable" src="media/pipeline/phase2.webp" alt="Retrieval, alignment and transfer" width="2400" height="1028" loading="lazy">
+        <figcaption>The GRIM pipeline for a given scene object and task. (1) Retrieval: The system queries its memory using joint visual and task similarity to find the best matching prior experience (a cup for the task &lsquo;drink&rsquo;). (2) Alignment: The retrieved memory object (red point cloud) is aligned with the scene object (grey point cloud) using our feature-guided iterative alignment. The colors on the objects represent PCA-reduced DINO features, showing semantic correspondence. (3) Transfer &amp; Refine: The grasp from the memory object is transferred to the scene object and used to select the best among a set of task-agnostic, stable grasp candidates (cluster of purple grasps), resulting in the final task-oriented grasp (single purple grasp).</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="real">
+  <div class="wrap">
+    <p class="eyebrow reveal">Real world</p>
+    <h2 class="reveal">Real-world deployment with novel objects.</h2>
+    <p class="sub reveal">The system correctly plans and executes task-oriented grasps. The Kinova Gen3 Lite robot successfully executing the planned grasp.</p>
+    <div class="rgrid">
+      <img class="zoomable reveal" src="media/realworld/1.webp" alt="Kinova Gen3 Lite grasping a kettle" width="960" height="600" loading="lazy">
+      <img class="zoomable reveal" src="media/realworld/2.webp" alt="Kinova Gen3 Lite grasping a spoon" width="960" height="600" loading="lazy">
+      <img class="zoomable reveal" src="media/realworld/3.webp" alt="Kinova Gen3 Lite grasping a spray can" width="960" height="600" loading="lazy">
+      <img class="zoomable reveal" src="media/realworld/4.webp" alt="Kinova Gen3 Lite grasping a spray bottle" width="960" height="600" loading="lazy">
     </div>
   </div>
 </section>

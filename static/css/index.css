@@ -132,6 +132,11 @@ a.badge:hover { transform: translateY(-2px); border-color: var(--accent); }
 .tab-panel img { width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--line); background: #fff; cursor: zoom-in; }
 .tab-panel figcaption { margin-top: 14px; color: var(--muted); font-size: 14.5px; max-width: 900px; }
 
+/* ---------- real-world grid ---------- */
+.rgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.rgrid img { width: 100%; height: auto; border-radius: 14px; cursor: zoom-in; transition: transform .35s ease, box-shadow .35s ease; }
+.rgrid img:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(15, 17, 21, .14); }
+
 /* ---------- veo grid ---------- */
 .vgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
 .vcard { position: relative; margin: 0; border-radius: 14px; overflow: hidden; background: #1a1d23; aspect-ratio: 16 / 9; transform: translateZ(0); }
@@ -206,6 +211,7 @@ a.badge:hover { transform: translateY(-2px); border-color: var(--accent); }
   .pills { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
+  .rgrid { grid-template-columns: 1fr; }
   .wrap, .nav-inner { padding: 0 16px; }
   .section { padding: 72px 0; }
   .vgrid { grid-template-columns: 1fr; }
