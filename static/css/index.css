@@ -168,7 +168,7 @@ a.badge:hover { transform: translateY(-2px); border-color: var(--accent); }
 
 /* ---------- bibtex ---------- */
 .bib { position: relative; border-radius: var(--radius); background: #0d0f13; color: #e4e6eb; overflow: hidden; }
-.bib pre { margin: 0; padding: 24px; overflow-x: auto; font: 13.5px/1.7 'JetBrains Mono', monospace; }
+.bib pre { margin: 0; padding: 24px; overflow-x: auto; white-space: pre-wrap; overflow-wrap: anywhere; font: 13.5px/1.7 'JetBrains Mono', monospace; }
 .copy { position: absolute; top: 12px; right: 12px; border: 1px solid rgba(255, 255, 255, .18); background: rgba(255, 255, 255, .06); color: #fff; padding: 6px 14px; border-radius: 999px; font: 600 13px Inter, sans-serif; cursor: pointer; transition: background .2s; }
 .copy:hover { background: rgba(255, 255, 255, .16); }
 
